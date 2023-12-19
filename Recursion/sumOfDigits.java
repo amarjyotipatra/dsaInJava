@@ -1,7 +1,3 @@
-Sum of Digits
-My Submissions
-Time Submitted	Submission ID	Status	Runtime	Memory
-23/7/2023 12:24 PM	53719329		0.83	118652
 import java.util.*;
   import java.io.*;
   
