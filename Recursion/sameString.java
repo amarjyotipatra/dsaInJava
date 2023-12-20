@@ -1,7 +1,3 @@
-Same String
-My Submissions
-Time Submitted	Submission ID	Status	Runtime	Memory
-24/7/2023 12:56 PM	53730842		0.19	39040
 import java.util.*;
   import java.io.*;
   
