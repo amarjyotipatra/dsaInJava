@@ -1,7 +1,3 @@
-Transition Point
-My Submissions
-Time Submitted	Submission ID	Status	Runtime	Memory
-11/8/2023 1:10 PM	54028601		0.15	50588
 import java.util.*;
   import java.io.*;
   
