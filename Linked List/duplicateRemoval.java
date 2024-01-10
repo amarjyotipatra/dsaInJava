@@ -77,3 +77,99 @@ while(temp!=null)
 System.out.println();
 
 }
+// Complete the removeDuplicates function below.
+
+
+
+/*
+
+For your reference:
+
+
+
+SinglyLinkedListNode {
+
+ int data;
+
+SinglyLinkedListNode next;
+
+}
+
+To create a new node use below constructor
+
+public SinglyLinkedListNode(int nodeData)
+
+*/
+
+static SinglyLinkedListNode removeDuplicates(SinglyLinkedListNode head) {
+
+    if (head == null) {
+
+        return head;
+
+    }
+
+
+
+    SinglyLinkedListNode current = head;
+
+
+
+    while (current != null && current.next != null) {
+
+        if (current.data == current.next.data) {
+
+            current.next = current.next.next;
+
+        } else {
+
+            current = current.next;
+
+        }
+
+    }
+
+
+
+    return head;
+
+}
+
+
+
+
+private static final Scanner scanner = new Scanner(System.in);
+
+public static void main(String[] args) throws IOException {
+
+int testCases = scanner.nextInt();
+
+while (testCases-- > 0) {
+
+SinglyLinkedList llist = new SinglyLinkedList();
+
+
+
+int llistCount = scanner.nextInt();
+
+
+
+for (int i = 0; i < llistCount; i++) {
+
+    int llistItem = scanner.nextInt();
+
+
+
+    llist.insertNode(llistItem);
+
+}
+
+printLinkedList(removeDuplicates(llist.head));
+
+}
+
+scanner.close();
+
+}
+
+}
