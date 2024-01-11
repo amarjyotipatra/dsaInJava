@@ -81,3 +81,102 @@ while(temp!=null)
 System.out.println();
 
 }
+
+
+// Complete the reverseLinkedList function below.
+
+
+
+/*
+
+ For your reference:
+
+
+
+ SinglyLinkedListNode {
+
+     int data;
+
+   SinglyLinkedListNode next;
+
+ }
+
+To create a new node use below constructor
+
+public SinglyLinkedListNode(int nodeData)
+
+*/
+
+
+
+static SinglyLinkedListNode reverseLinkedList(SinglyLinkedListNode head) {
+
+    SinglyLinkedListNode current=head,next=null,prev=null;
+    
+    while(current!=null){
+    
+      next=current.next;
+    
+      current.next=prev;
+    
+      prev=current;
+    
+      current=next;
+    
+    }
+    
+    head=prev;
+    
+    return head;
+    
+    }
+    
+    
+    
+    
+    private static final Scanner scanner = new Scanner(System.in);
+    
+    
+    
+    public static void main(String[] args) throws IOException {
+    
+    int testCases = scanner.nextInt();
+    
+    
+    
+    while (testCases-- > 0) {
+    
+        SinglyLinkedList llist = new SinglyLinkedList();
+    
+    
+    
+        int llistCount = scanner.nextInt();
+    
+    
+    
+        for (int i = 0; i < llistCount; i++) {
+    
+            int llistItem = scanner.nextInt();
+    
+    
+    
+            llist.insertNode(llistItem);
+    
+        }
+    
+    
+    
+        printLinkedList(reverseLinkedList(llist.head));
+    
+    
+    
+    }
+    
+    
+    
+    scanner.close();
+    
+    }
+    
+    }
+    
