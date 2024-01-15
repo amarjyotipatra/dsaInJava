@@ -91,3 +91,96 @@ while(temp!=null)
 System.out.println();
 
 }
+
+// Complete the rotateDoublyList function below.
+
+
+
+/*
+
+For your reference:
+
+SinglyLinkedListNode {
+
+int data;
+
+SinglyLinkedListNode next;
+
+SinglyLinkedListNode prev;
+
+}
+
+To create a new node use below constructor
+
+public SinglyLinkedListNode(int nodeData)
+
+*/
+
+
+
+static SinglyLinkedListNode rotateDoublyList(SinglyLinkedListNode head,int k) {
+
+    if(head==null || k<0)
+  
+       return head;
+  
+    SinglyLinkedListNode current=head;
+  
+    while(current!=null && current.next!=null)
+  
+       current=current.next;
+  
+    current.next=head;
+  
+    head.prev=current;
+  
+    for(int i=0;i<k;i++){
+  
+      current=current.next;
+  
+      head=head.next;
+  
+    }
+  
+    head.prev=null;
+  
+    current.next=null;
+  
+    return head;
+  
+  }
+  
+  
+  
+  
+  private static final Scanner scanner = new Scanner(System.in);
+  
+  public static void main(String[] args) throws IOException {
+  
+  int testCases = scanner.nextInt();
+  
+  while (testCases-- > 0) {
+  
+  SinglyLinkedList llist = new SinglyLinkedList();
+  
+  int llistCount = scanner.nextInt();
+  
+  int k = scanner.nextInt();
+  
+  for (int i = 0; i < llistCount; i++) {
+  
+      int llistItem = scanner.nextInt();
+  
+      llist.insertNode(llistItem);
+  
+  }
+  
+  printLinkedList(rotateDoublyList(llist.head,k));
+  
+  }
+  
+  scanner.close();
+  
+  }
+  
+  }
