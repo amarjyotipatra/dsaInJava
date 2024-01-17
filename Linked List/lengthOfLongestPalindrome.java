@@ -77,3 +77,114 @@ while(temp!=null)
 System.out.println();
 
 }
+// Complete the longestPalindrome function below.
+
+
+
+/*
+
+For your reference:
+
+
+
+SinglyLinkedListNode {
+
+int data;
+
+SinglyLinkedListNode next;
+
+}
+
+To create a new node use below constructor
+
+public SinglyLinkedListNode(int nodeData)
+
+*/
+
+static int countCommon(SinglyLinkedListNode a, SinglyLinkedListNode b) {
+
+    int count = 0;
+
+    while (a != null && b != null) {
+
+        if (a.data == b.data) {
+
+            ++count;
+
+            a = a.next;
+
+            b = b.next;
+
+        } else {
+
+            break;
+
+        }
+
+    }
+
+    return count;
+
+}
+
+
+
+static int longestPalindrome(SinglyLinkedListNode head) {
+
+    int result = 0;
+
+    SinglyLinkedListNode curr = head, prev = null;
+
+
+
+    while (curr != null) {
+
+        SinglyLinkedListNode next = curr.next;
+
+        curr.next = prev;
+
+        result = Math.max(result, 2 * countCommon(prev, next) + 1);
+
+        result = Math.max(result, 2 * countCommon(curr, next));
+
+        prev = curr;
+
+        curr = next;
+
+    }
+
+    return result;
+
+}
+
+
+private static final Scanner scanner = new Scanner(System.in);
+
+public static void main(String[] args) throws IOException {
+
+int testCases = 1;
+
+while (testCases-- > 0) {
+
+SinglyLinkedList llist = new SinglyLinkedList();
+
+int llistCount = scanner.nextInt();
+
+for (int i = 0; i < llistCount; i++) {
+
+int llistItem = scanner.nextInt();
+
+llist.insertNode(llistItem);
+
+}
+
+System.out.println(longestPalindrome(llist.head));
+
+}
+
+scanner.close();
+
+}
+
+}
+
