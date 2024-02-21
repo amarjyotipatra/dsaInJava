@@ -16,3 +16,17 @@ import java.util.*;
     	 int mx=0;
     	 for(int i=0;i<n;i++)
     	 {
+            while(!s.isEmpty())
+            {
+                mx=Math.max(mx, s.peek() ^ a[i]);
+                if(s.peek()<a[i])
+                    s.pop();
+                else
+                    break;
+            }
+            s.push(a[i]);
+        }
+        System.out.println(mx);
+    }
+   }
+ }
