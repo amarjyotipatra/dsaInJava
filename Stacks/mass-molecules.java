@@ -19,3 +19,22 @@ import java.util.*;
             } else if (ch == '(') {
                 st.push(100);
             } else if (ch == ')') {
+                int v = 0;
+                while (!st.isEmpty() && st.peek() != 100) {
+                    v += st.pop();
+                }
+                st.pop();
+                st.push(v);
+            } else if (ch >= '1' && ch <= '9') {
+              int k = st.pop();
+                int x = k * (ch - '0');
+                st.push(x);
+            }
+        }
+        
+        while (!st.isEmpty()) {
+            sum += st.pop();
+        }
+        System.out.println(sum);
+    }
+  }
